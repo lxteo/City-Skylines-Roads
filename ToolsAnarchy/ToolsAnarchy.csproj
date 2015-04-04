@@ -62,10 +62,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="libs\Assembly-CSharp.dll" />
-    <Content Include="libs\ColossalManaged.dll" />
-    <Content Include="libs\ICities.dll" />
-    <Content Include="libs\UnityEngine.dll" />
+    <Folder Include="libs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
