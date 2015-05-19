@@ -96,7 +96,7 @@ namespace ToolsAnarchy
             hookEnabled = true;
             Debug.Log("Hooked.");
         }
-
+        
         public void DisableHook()
         {
             if (!hookEnabled)
