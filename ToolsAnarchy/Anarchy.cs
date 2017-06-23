@@ -58,7 +58,7 @@ namespace ToolsAnarchy
                 return;
             }
             var allFlags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public;
-            var method = typeof(NetTool).GetMethods(allFlags).Single(c => c.Name == "CanCreateSegment" && c.GetParameters().Length == 11);
+            var method = typeof(NetTool).GetMethods(allFlags).FirstOrDefault(c => c.Name == "CanCreateSegment" && c.GetParameters().Length == 11);
             redirects.Add(method, RedirectionHelper.RedirectCalls(method, typeof(Anarchy).GetMethod("CanCreateSegment", allFlags)));
 
             method = typeof(NetTool).GetMethod("CheckNodeHeights", allFlags);
@@ -73,7 +73,7 @@ namespace ToolsAnarchy
             method = typeof(BuildingTool).GetMethod("CheckSpace", allFlags);
             redirects.Add(method, RedirectionHelper.RedirectCalls(method, typeof(Anarchy).GetMethod("CheckSpace", allFlags)));
 
-            method = typeof(Building).GetMethods(allFlags).Single(c => c.Name == "CheckZoning" && c.GetParameters().Length == 1);
+            method = typeof(Building).GetMethods(allFlags).FirstOrDefault(c => c.Name == "CheckZoning" && c.GetParameters().Length == 1);
             redirects.Add(method, RedirectionHelper.RedirectCalls(method, typeof(Anarchy).GetMethod("CheckZoning", allFlags)));
 
             method = typeof(NetTool).GetMethod("GetElevation", allFlags);
